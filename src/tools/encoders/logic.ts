@@ -28,13 +28,22 @@ function bytesToBase64(bytes: Uint8Array): string {
   return btoa(bin)
 }
 
-function base64ToBytes(input: string): Uint8Array {
+function base64ToBytes(input: string): Uint8Array<ArrayBuffer> {
   const clean = input.replace(/\s+/g, '')
   if (!/^[A-Za-z0-9+/]*={0,2}$/.test(clean) || clean.length % 4 === 1) {
     throw new Error('Base64 inválido')
   }
   const bin = atob(clean)
   return Uint8Array.from(bin, (c) => c.charCodeAt(0))
+}
+
+/** Base64url sin padding de bytes arbitrarios (RFC 4648 §5). Lo usan las firmas JWT, que no son texto. */
+export const bytesToBase64url = (bytes: Uint8Array): string =>
+  bytesToBase64(bytes).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+
+export function base64urlToBytes(input: string): Uint8Array<ArrayBuffer> {
+  const b64 = input.replace(/\s+/g, '').replace(/-/g, '+').replace(/_/g, '/')
+  return base64ToBytes(b64.padEnd(Math.ceil(b64.length / 4) * 4, '='))
 }
 
 export function encode(codec: Codec, text: string): string {
@@ -44,7 +53,7 @@ export function encode(codec: Codec, text: string): string {
       return bytesToBase64(bytes)
     case 'base64url':
       // RFC 4648 §5: alfabeto URL-safe y sin padding (como en JWT).
-      return bytesToBase64(bytes).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+      return bytesToBase64url(bytes)
     case 'hex':
       return [...bytes].map((b) => b.toString(16).padStart(2, '0')).join('')
     case 'url':
@@ -58,10 +67,8 @@ export function decode(codec: Codec, input: string): string {
   switch (codec) {
     case 'base64':
       return toUtf8(base64ToBytes(input))
-    case 'base64url': {
-      const b64 = input.replace(/\s+/g, '').replace(/-/g, '+').replace(/_/g, '/')
-      return toUtf8(base64ToBytes(b64.padEnd(Math.ceil(b64.length / 4) * 4, '=')))
-    }
+    case 'base64url':
+      return toUtf8(base64urlToBytes(input))
     case 'hex': {
       const clean = input.replace(/\s+|0x/gi, '')
       if (!/^([0-9a-f]{2})*$/i.test(clean)) throw new Error('Hex inválido: deben ser pares de dígitos 0-9a-f')

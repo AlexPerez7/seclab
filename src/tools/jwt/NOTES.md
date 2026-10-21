@@ -1,6 +1,6 @@
 # JWT Toolkit — apuntes
 
-**Estado:** pendiente.
+**Estado:** listo (2026-10-21). Reutiliza Base64url de `encoders` y HMAC de `hash`. El test que reproduce byte a byte el token de ejemplo de jwt.io valida toda la cadena.
 
 ## Objetivos de aprendizaje
 - La estructura JWS compacta: `header.payload.signature`, todo en Base64url.

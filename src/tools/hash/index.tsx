@@ -4,7 +4,7 @@ import { Upload } from 'lucide-react'
 import { Card, CopyButton, Field, ToolHeader } from '@/components/ui'
 import { findTool } from '@/lib/registry'
 import {
-  bitDiff, DIGEST_BITS, HASH_ALGS, hashAll, hashesMatch, hashText, hmac, type HashAlg,
+  bitDiff, DIGEST_BITS, HASH_ALGS, hashAll, hashesMatch, hashText, hmac, type HashAlg, type HmacAlg,
 } from './logic'
 
 const tool = findTool('hash')!
@@ -141,10 +141,10 @@ function FileTab() {
   )
 }
 
-const HMAC_ALGS = HASH_ALGS.filter((a): a is Exclude<HashAlg, 'MD5'> => a !== 'MD5')
+const HMAC_ALGS = HASH_ALGS.filter((a): a is HmacAlg => a !== 'MD5')
 
 function HmacTab() {
-  const [alg, setAlg] = useState<Exclude<HashAlg, 'MD5'>>('SHA-256')
+  const [alg, setAlg] = useState<HmacAlg>('SHA-256')
   const [key, setKey] = useState('clave-secreta')
   const [msg, setMsg] = useState('mensaje a autenticar')
   const { value, error } = useAsyncValue(() => hmac(alg, key, msg), [alg, key, msg])

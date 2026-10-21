@@ -96,7 +96,7 @@ La teoría de fondo: cómo funciona, ataques, defensas, comandos equivalentes, e
 | Fundamentos | Hash Suite | `hash` | `Hash.tsx` | ✅ listo |
 | Fundamentos | HashID | `hashid` | `Hashid.tsx` | ✅ listo |
 | Fundamentos | Encoders | `encoders` | `Encoders.tsx` | ✅ listo |
-| Fundamentos | JWT Toolkit | `jwt` | `Jwt.tsx` | pendiente |
+| Fundamentos | JWT Toolkit | `jwt` | `Jwt.tsx` | ✅ listo |
 | Redes | Subnetting & VLSM | `subnetting` | `Subnetting.tsx` + `Vlsm.tsx` | pendiente |
 | Redes | Puertos & Servicios | `ports` | `Ports.tsx` | pendiente (datos semilla listos) |
 | Redes | PCAP Analyzer | `pcap` | `Pcap.tsx` | pendiente |
@@ -120,9 +120,9 @@ La teoría de fondo: cómo funciona, ataques, defensas, comandos equivalentes, e
 ### Fase 1 — Fundamentos
 - [x] `hash` (2026-10-21): MD5 a mano según RFC 1321, SHA-* y HMAC con WebCrypto, pestañas de texto, archivo, HMAC y avalancha. 17 tests.
 - [x] `hashid` (2026-10-21): ~40 firmas (crypt, Windows/AD, Kerberos, LDAP, hex), desglose crypt, hashes conocidos y comandos de hashcat/John. Reescrita: la original tenía modos de hashcat erróneos. 22 tests.
-- [ ] `jwt`
+- [x] `jwt` (2026-10-21): decodificar, verificar y firmar HS256/384/512, auditoría según RFC 8725, alg=none con variantes y prueba de secretos débiles con wordlist propia. 17 tests.
 
-`hash` → `hashid` → `jwt`. Este orden reutiliza lo anterior: JWT usa Base64url (encoders) y HMAC (hash).
+✅ **Fase 1 completa.** `hash` → `hashid` → `jwt`. Este orden reutiliza lo anterior: JWT usa Base64url (encoders) y HMAC (hash).
 
 ### Fase 2 — Redes
 `subnetting` → `ports` → `pcap`. PCAP es la más larga: dejar pcapng para el final.

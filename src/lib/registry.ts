@@ -58,7 +58,7 @@ export const TOOLS: ToolDef[] = [
     ],
   },
   {
-    id: 'jwt', name: 'JWT Toolkit', track: 'Fundamentos', status: 'pendiente', icon: KeyRound, origin: 'Jwt',
+    id: 'jwt', name: 'JWT Toolkit', track: 'Fundamentos', status: 'listo', icon: KeyRound, origin: 'Jwt',
     desc: 'Decodifica, verifica y firma JWT HS256, y muestra los ataques clásicos (alg=none, secret débil)',
     refs: [
       { label: 'RFC 7519 (JWT)', url: 'https://www.rfc-editor.org/rfc/rfc7519' },

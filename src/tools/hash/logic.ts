@@ -103,12 +103,20 @@ export async function hashAll(data: Uint8Array<ArrayBuffer>): Promise<Record<Has
   return Object.fromEntries(HASH_ALGS.map((a, i) => [a, values[i]])) as Record<HashAlg, string>
 }
 
-/** HMAC (RFC 2104) con WebCrypto. Clave y mensaje como texto UTF-8. Devuelve hex. */
-export async function hmac(alg: Exclude<HashAlg, 'MD5'>, key: string, message: string): Promise<string> {
-  const enc = new TextEncoder()
-  const cryptoKey = await crypto.subtle.importKey('raw', enc.encode(key), { name: 'HMAC', hash: alg }, false, ['sign'])
-  return toHex(new Uint8Array(await crypto.subtle.sign('HMAC', cryptoKey, enc.encode(message))))
+export type HmacAlg = Exclude<HashAlg, 'MD5'>
+
+/** Importa una clave HMAC de WebCrypto a partir de texto UTF-8. */
+export const importHmacKey = (alg: HmacAlg, key: string, usages: KeyUsage[] = ['sign']) =>
+  crypto.subtle.importKey('raw', new TextEncoder().encode(key), { name: 'HMAC', hash: alg }, false, usages)
+
+/** HMAC (RFC 2104) con WebCrypto, en bytes. */
+export async function hmacBytes(alg: HmacAlg, key: string, message: string): Promise<Uint8Array> {
+  const cryptoKey = await importHmacKey(alg, key)
+  return new Uint8Array(await crypto.subtle.sign('HMAC', cryptoKey, new TextEncoder().encode(message)))
 }
+
+/** HMAC en hex. Clave y mensaje como texto UTF-8. */
+export const hmac = async (alg: HmacAlg, key: string, message: string): Promise<string> => toHex(await hmacBytes(alg, key, message))
 
 // ── Comparación y efecto avalancha ────────────────────────────
 
