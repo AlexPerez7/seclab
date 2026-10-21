@@ -60,14 +60,6 @@ export default function Encoders() {
           <button type="button" className="btn" onClick={swap} disabled={!result.ok}>usar salida como entrada</button>
         </div>
       </Card>
-      <Card title="Para recordar">
-        <ul className="list-disc space-y-1.5 pl-5 text-sm text-slate-300">
-          <li>Codificar no es cifrar: cualquiera revierte Base64 o hex sin una clave.</li>
-          <li>Base64 crece ~33 % (3 bytes → 4 caracteres). El padding <code>=</code> completa el último bloque.</li>
-          <li>Base64url (RFC 4648 §5) cambia <code>+/</code> por <code>-_</code> y suele omitir el padding: es el formato de las partes de un JWT.</li>
-          <li>Los filtros que bloquean <code>../</code> o <code>&lt;script&gt;</code> sin decodificar primero se saltan con URL-encode o doble encode.</li>
-        </ul>
-      </Card>
     </div>
   )
 }

@@ -2,9 +2,11 @@ import { Suspense, lazy, type ComponentType, type LazyExoticComponent } from 're
 import { Routes, Route, useParams, Link } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { References } from './components/ui'
+import { ToolGuide } from './components/ToolGuide'
 import { findTool, TOOLS } from './lib/registry'
 import Home from './pages/Home'
 import Backlog from './pages/Backlog'
+import Docs from './pages/Docs'
 
 /* Cada herramienta vive en src/tools/<id>/index.tsx y se carga bajo demanda.
    import.meta.glob evita mantener un mapa id → fichero a mano. */
@@ -25,6 +27,7 @@ function ToolRoute() {
   return (
     <Suspense fallback={<p className="font-mono text-sm text-muted">cargando…</p>}>
       <Page />
+      <ToolGuide toolId={tool.id} />
       <References refs={tool.refs} />
     </Suspense>
   )
@@ -45,6 +48,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tool/:id" element={<ToolRoute />} />
+        <Route path="/docs" element={<Docs />} />
+        <Route path="/docs/:id" element={<Docs />} />
         <Route path="/backlog" element={<Backlog />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

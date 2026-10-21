@@ -254,14 +254,6 @@ export default function Hash() {
       {tab === 'archivo' && <FileTab />}
       {tab === 'hmac' && <HmacTab />}
       {tab === 'avalancha' && <AvalancheTab />}
-      <Card title="Para recordar">
-        <ul className="list-disc space-y-1.5 pl-5 text-sm text-slate-300">
-          <li>Un hash no se "descifra": se busca una entrada que dé el mismo resultado (diccionario, fuerza bruta, tablas).</li>
-          <li>MD5 y SHA-1 tienen colisiones prácticas: no sirven para firmas ni certificados, aunque siguen apareciendo como checksums.</li>
-          <li>Para guardar contraseñas no se usa un hash rápido sino un KDF lento con sal: bcrypt, scrypt o Argon2.</li>
-          <li>NTLM es MD4 de la contraseña en UTF-16LE, sin sal: por eso funciona el pass-the-hash.</li>
-        </ul>
-      </Card>
     </div>
   )
 }

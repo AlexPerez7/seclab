@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { Menu, X, ListTodo } from 'lucide-react'
+import { Menu, X, ListTodo, BookOpen } from 'lucide-react'
 import clsx from 'clsx'
 import { TOOLS, TRACKS } from '@/lib/registry'
 import { StatusBadge } from './ui'
@@ -36,15 +36,23 @@ function Sidebar({ onNavigate }: { onNavigate: () => void }) {
           </ul>
         </div>
       ))}
-      <NavLink
-        to="/backlog"
-        onClick={onNavigate}
-        className={({ isActive }) =>
-          clsx('flex items-center gap-2 rounded-md px-2 py-1.5 text-sm', isActive ? 'bg-acento/10 text-acento' : 'text-muted hover:bg-white/5')
-        }
-      >
-        <ListTodo size={15} /> Backlog
-      </NavLink>
+      <div className="space-y-0.5 border-t border-edge pt-4">
+        {[
+          { to: '/docs', icon: BookOpen, label: 'Documentación' },
+          { to: '/backlog', icon: ListTodo, label: 'Backlog' },
+        ].map(({ to, icon: Icon, label }) => (
+          <NavLink
+            key={to}
+            to={to}
+            onClick={onNavigate}
+            className={({ isActive }) =>
+              clsx('flex items-center gap-2 rounded-md px-2 py-1.5 text-sm', isActive ? 'bg-acento/10 text-acento' : 'text-muted hover:bg-white/5')
+            }
+          >
+            <Icon size={15} /> {label}
+          </NavLink>
+        ))}
+      </div>
     </nav>
   )
 }

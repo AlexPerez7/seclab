@@ -15,7 +15,7 @@ export function ToolStub({ id, features }: { id: string; features: string[] }) {
         </ul>
         <p className="mt-3 text-xs text-muted">
           Lógica en <code className="text-slate-300">src/tools/{id}/logic.ts</code>, tests en{' '}
-          <code className="text-slate-300">logic.test.ts</code> y apuntes en <code className="text-slate-300">NOTES.md</code>.
+          <code className="text-slate-300">logic.test.ts</code>, documentación en <code className="text-slate-300">docs.md</code> y apuntes en <code className="text-slate-300">NOTES.md</code>.
           {tool.origin && <> Referencia: <code className="text-slate-300">hacknexus/src/tools/{tool.origin}.tsx</code>.</>}
         </p>
       </TodoNote>

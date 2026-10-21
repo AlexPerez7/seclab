@@ -46,16 +46,44 @@ seclab/
 │   ├── App.tsx              ← rutas; carga cada herramienta con import.meta.glob
 │   ├── lib/
 │   │   ├── registry.ts      ← catálogo del núcleo: id, ruta de estudio, estado, fuentes
+│   │   ├── docs.ts          ← carga y divide los docs.md de cada herramienta
 │   │   └── todo.ts          ← notImplemented() para los stubs
 │   ├── data/backlog.ts      ← el backlog como datos (página /backlog de la app)
-│   ├── components/          ← Layout, ui (Card, Field, CopyButton…), ToolStub
-│   ├── pages/               ← Home, Backlog
+│   ├── components/          ← Layout, ui (Card, Field, CopyButton…), ToolStub, ToolGuide, Markdown
+│   ├── pages/               ← Home, Docs, Backlog
 │   └── tools/<id>/
 │       ├── index.tsx        ← UI (default export)
 │       ├── logic.ts         ← funciones puras, sin React
 │       ├── logic.test.ts    ← vectores de referencia
-│       └── NOTES.md         ← apuntes de estudio
+│       ├── docs.md          ← documentación propia (se ve en la app)
+│       └── NOTES.md         ← apuntes de estudio personales (no se ven en la app)
 ```
+
+### Documentación de cada herramienta (`docs.md`)
+
+Cada herramienta lleva su documentación propia, escrita en Markdown, con esta estructura:
+
+```markdown
+# Nombre de la herramienta
+
+Párrafo de introducción: qué hace en una o dos frases.
+
+## Cómo se usa
+Pasos numerados para usar la herramienta.
+
+## Casos de uso
+Situaciones reales en las que sirve.
+
+## …resto de secciones…
+La teoría de fondo: cómo funciona, ataques, defensas, comandos equivalentes, errores comunes, glosario.
+```
+
+- **Cómo se usa** y **Casos de uso** se muestran en la propia página de la herramienta, debajo de ella.
+- Debajo aparece el enlace **leer completa** a `/docs/<id>`, con el índice de las demás secciones enlazado.
+- `/docs` lista la documentación de todas las herramientas.
+- No se enlaza a documentación externa desde aquí. Las fuentes primarias van aparte, en `refs` del registry.
+
+**`docs.md` frente a `NOTES.md`:** `docs.md` es la documentación de la herramienta, escrita para quien la usa. `NOTES.md` son tus apuntes de estudio: objetivos, preguntas de repaso y ejercicios.
 
 **Convención:** el `id` del registry es el nombre de la carpeta. Para añadir una herramienta basta con crear la carpeta y su entrada en el registry; App.tsx la encuentra sola.
 
@@ -135,6 +163,7 @@ Herramientas ligadas al trabajo con CyberArk:
 - [ ] Al menos un vector comprobado contra la fuente primaria enlazada en el registry
 - [ ] UI real en `index.tsx` (fuera `ToolStub`), usable en móvil
 - [ ] Casos de error visibles en la UI (entrada inválida → mensaje, no pantalla rota)
+- [ ] `docs.md` con "Cómo se usa", "Casos de uso" y la documentación de fondo (lo exige un test de `src/lib/registry.test.ts`)
 - [ ] `NOTES.md` con las preguntas de repaso respondidas con tus palabras
 - [ ] `status: 'listo'` en `src/lib/registry.ts`
 - [ ] `npm run build` sin errores

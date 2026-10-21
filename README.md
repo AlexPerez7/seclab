@@ -18,7 +18,8 @@ npm test
 
 1. Crear `src/tools/<id>/` copiando la estructura de `src/tools/encoders/`.
 2. Añadir la entrada en `src/lib/registry.ts` con su ruta de estudio y sus fuentes primarias.
-3. Cumplir la "Definition of done" de `PLAN.md`.
+3. Escribir su `docs.md` con "Cómo se usa", "Casos de uso" y la documentación de fondo (formato en `PLAN.md`).
+4. Cumplir la "Definition of done" de `PLAN.md`.
 
 ## Créditos
 

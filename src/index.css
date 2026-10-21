@@ -27,4 +27,62 @@
   .btn-active {
     @apply border-acento/60 bg-acento/10 text-acento;
   }
+
+  /* Markdown de los docs.md */
+  .prose-lab {
+    @apply text-sm leading-relaxed text-slate-300;
+  }
+  .prose-lab > * + * {
+    @apply mt-3;
+  }
+  .prose-lab h2 {
+    @apply mt-10 scroll-mt-6 border-b border-edge pb-2 font-mono text-lg font-bold text-white;
+  }
+  .prose-lab h3 {
+    @apply mt-6 scroll-mt-6 font-mono text-base font-bold text-slate-100;
+  }
+  .prose-lab h4 {
+    @apply mt-4 font-mono text-sm font-bold text-slate-200;
+  }
+  .prose-lab > h2:first-child,
+  .prose-lab > h3:first-child {
+    @apply mt-0;
+  }
+  .prose-lab a {
+    @apply text-info hover:underline;
+  }
+  .prose-lab strong {
+    @apply font-semibold text-slate-100;
+  }
+  .prose-lab ul {
+    @apply list-disc space-y-1 pl-5;
+  }
+  .prose-lab ol {
+    @apply list-decimal space-y-1 pl-5;
+  }
+  .prose-lab li > ul,
+  .prose-lab li > ol {
+    @apply mt-1;
+  }
+  .prose-lab code {
+    @apply rounded bg-black/40 px-1 py-0.5 font-mono text-[12.5px] text-acento;
+  }
+  .prose-lab pre {
+    @apply overflow-x-auto rounded-lg border border-edge bg-black/40 p-3;
+  }
+  .prose-lab pre code {
+    @apply bg-transparent p-0 text-slate-200;
+  }
+  .prose-lab blockquote {
+    @apply border-l-2 border-warn/60 pl-3 text-slate-400;
+  }
+  .prose-lab table {
+    @apply block w-full overflow-x-auto text-left text-[13px];
+  }
+  .prose-lab th {
+    @apply border-b border-edge px-3 py-1.5 font-mono text-xs text-muted;
+  }
+  .prose-lab td {
+    @apply border-b border-edge/60 px-3 py-1.5 align-top;
+  }
 }
