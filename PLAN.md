@@ -65,7 +65,7 @@ seclab/
 
 | Ruta | Herramienta | id | Origen en HackNexus | Estado |
 |---|---|---|---|---|
-| Fundamentos | Hash Suite | `hash` | `Hash.tsx` | pendiente |
+| Fundamentos | Hash Suite | `hash` | `Hash.tsx` | ✅ listo |
 | Fundamentos | HashID | `hashid` | `Hashid.tsx` | pendiente |
 | Fundamentos | Encoders | `encoders` | `Encoders.tsx` | ✅ listo |
 | Fundamentos | JWT Toolkit | `jwt` | `Jwt.tsx` | pendiente |
@@ -90,6 +90,10 @@ seclab/
 - [x] Backlog completo de las 159 herramientas restantes (`docs/BACKLOG.md` y `/backlog`)
 
 ### Fase 1 — Fundamentos
+- [x] `hash` (2026-10-21): MD5 a mano según RFC 1321, SHA-* y HMAC con WebCrypto, pestañas de texto, archivo, HMAC y avalancha. 17 tests.
+- [ ] `hashid`
+- [ ] `jwt`
+
 `hash` → `hashid` → `jwt`. Este orden reutiliza lo anterior: JWT usa Base64url (encoders) y HMAC (hash).
 
 ### Fase 2 — Redes

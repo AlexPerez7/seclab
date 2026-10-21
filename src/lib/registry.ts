@@ -34,8 +34,8 @@ export interface ToolDef {
 export const TOOLS: ToolDef[] = [
   // ── Fundamentos ─────────────────────────────────────────────
   {
-    id: 'hash', name: 'Hash Suite', track: 'Fundamentos', status: 'pendiente', icon: Hash, origin: 'Hash',
-    desc: 'MD5, SHA-1, SHA-2 y HMAC de texto y archivos con WebCrypto',
+    id: 'hash', name: 'Hash Suite', track: 'Fundamentos', status: 'listo', icon: Hash, origin: 'Hash',
+    desc: 'MD5 (implementado a mano), SHA-1, SHA-2 y HMAC de texto y archivos, con demo del efecto avalancha',
     refs: [
       { label: 'FIPS 180-4 (SHA)', url: 'https://csrc.nist.gov/pubs/fips/180-4/upd1/final' },
       { label: 'RFC 1321 (MD5)', url: 'https://www.rfc-editor.org/rfc/rfc1321' },
