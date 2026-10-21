@@ -1,6 +1,6 @@
 # HashID — apuntes
 
-**Estado:** pendiente.
+**Estado:** listo (2026-10-21). Reescrita desde cero: la de HackNexus tenía modos de hashcat incorrectos (p. ej. 17400 como "SHA-512/256", cuando es SHA3-256) y no cubría Kerberos, NetNTLM ni DCC2.
 
 ## Objetivos de aprendizaje
 - Reconocer a simple vista los formatos más comunes: hex crudo, crypt (`$id$`), LM/NTLM, bcrypt y Kerberos (`$krb5tgs$`).

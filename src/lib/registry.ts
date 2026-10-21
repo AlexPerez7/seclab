@@ -43,8 +43,8 @@ export const TOOLS: ToolDef[] = [
     ],
   },
   {
-    id: 'hashid', name: 'HashID', track: 'Fundamentos', status: 'pendiente', icon: ScanSearch, origin: 'Hashid',
-    desc: 'Identifica el formato de un hash y sugiere el modo de hashcat y el formato de John',
+    id: 'hashid', name: 'HashID', track: 'Fundamentos', status: 'listo', icon: ScanSearch, origin: 'Hashid',
+    desc: 'Identifica el formato de un hash (crypt, Windows/AD, Kerberos, hex) con su modo de hashcat y formato de John',
     refs: [
       { label: 'hashcat example hashes', url: 'https://hashcat.net/wiki/doku.php?id=example_hashes' },
     ],

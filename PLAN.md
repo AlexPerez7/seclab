@@ -94,7 +94,7 @@ La teoría de fondo: cómo funciona, ataques, defensas, comandos equivalentes, e
 | Ruta | Herramienta | id | Origen en HackNexus | Estado |
 |---|---|---|---|---|
 | Fundamentos | Hash Suite | `hash` | `Hash.tsx` | ✅ listo |
-| Fundamentos | HashID | `hashid` | `Hashid.tsx` | pendiente |
+| Fundamentos | HashID | `hashid` | `Hashid.tsx` | ✅ listo |
 | Fundamentos | Encoders | `encoders` | `Encoders.tsx` | ✅ listo |
 | Fundamentos | JWT Toolkit | `jwt` | `Jwt.tsx` | pendiente |
 | Redes | Subnetting & VLSM | `subnetting` | `Subnetting.tsx` + `Vlsm.tsx` | pendiente |
@@ -119,7 +119,7 @@ La teoría de fondo: cómo funciona, ataques, defensas, comandos equivalentes, e
 
 ### Fase 1 — Fundamentos
 - [x] `hash` (2026-10-21): MD5 a mano según RFC 1321, SHA-* y HMAC con WebCrypto, pestañas de texto, archivo, HMAC y avalancha. 17 tests.
-- [ ] `hashid`
+- [x] `hashid` (2026-10-21): ~40 firmas (crypt, Windows/AD, Kerberos, LDAP, hex), desglose crypt, hashes conocidos y comandos de hashcat/John. Reescrita: la original tenía modos de hashcat erróneos. 22 tests.
 - [ ] `jwt`
 
 `hash` → `hashid` → `jwt`. Este orden reutiliza lo anterior: JWT usa Base64url (encoders) y HMAC (hash).
