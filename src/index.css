@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-bg font-sans text-slate-200 antialiased;
+  }
+  ::selection {
+    @apply bg-acento/30 text-white;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-edge bg-panel;
+  }
+  .input {
+    @apply w-full rounded-lg border border-edge bg-black/40 px-3 py-2 font-mono text-sm text-slate-100 outline-none transition-colors focus:border-acento/60;
+  }
+  .btn {
+    @apply inline-flex items-center gap-1.5 rounded-lg border border-edge bg-black/30 px-3 py-1.5 font-mono text-xs text-slate-200 transition-colors hover:border-acento/60 hover:text-acento;
+  }
+  .btn-active {
+    @apply border-acento/60 bg-acento/10 text-acento;
+  }
+}
