@@ -1,6 +1,6 @@
 # Subnetting & VLSM — apuntes
 
-**Estado:** pendiente. Absorbe la herramienta `vlsm` de HackNexus.
+**Estado:** listo (2026-10-21). Absorbe la herramienta `vlsm` de HackNexus.
 
 ## Objetivos de aprendizaje
 - Calcular red, broadcast y rango de hosts de cabeza, en binario y con el "número mágico".

@@ -97,7 +97,7 @@ La teoría de fondo: cómo funciona, ataques, defensas, comandos equivalentes, e
 | Fundamentos | HashID | `hashid` | `Hashid.tsx` | ✅ listo |
 | Fundamentos | Encoders | `encoders` | `Encoders.tsx` | ✅ listo |
 | Fundamentos | JWT Toolkit | `jwt` | `Jwt.tsx` | ✅ listo |
-| Redes | Subnetting & VLSM | `subnetting` | `Subnetting.tsx` + `Vlsm.tsx` | pendiente |
+| Redes | Subnetting & VLSM | `subnetting` | `Subnetting.tsx` + `Vlsm.tsx` | ✅ listo |
 | Redes | Puertos & Servicios | `ports` | `Ports.tsx` | pendiente (datos semilla listos) |
 | Redes | PCAP Analyzer | `pcap` | `Pcap.tsx` | pendiente |
 | Web | Path Traversal | `pathtraversal` | `PathTraversal.tsx` | pendiente |
@@ -125,6 +125,10 @@ La teoría de fondo: cómo funciona, ataques, defensas, comandos equivalentes, e
 ✅ **Fase 1 completa.** `hash` → `hashid` → `jwt`. Este orden reutiliza lo anterior: JWT usa Base64url (encoders) y HMAC (hash).
 
 ### Fase 2 — Redes
+- [x] `subnetting` (2026-10-21): calculadora con IP/prefijo o máscara, deslizador de prefijo, vista binaria, rangos especiales de IANA, VLSM con ocupación y modo práctica con puntuación. 23 tests.
+- [ ] `ports`
+- [ ] `pcap`
+
 `subnetting` → `ports` → `pcap`. PCAP es la más larga: dejar pcapng para el final.
 
 ### Fase 3 — Web

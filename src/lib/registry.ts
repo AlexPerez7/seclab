@@ -69,8 +69,8 @@ export const TOOLS: ToolDef[] = [
 
   // ── Redes ───────────────────────────────────────────────────
   {
-    id: 'subnetting', name: 'Subnetting & VLSM', track: 'Redes', status: 'pendiente', icon: Network, origin: 'Subnetting',
-    desc: 'Calculadora IPv4/CIDR con binarios y división VLSM por cantidad de hosts',
+    id: 'subnetting', name: 'Subnetting & VLSM', track: 'Redes', status: 'listo', icon: Network, origin: 'Subnetting',
+    desc: 'Calculadora IPv4/CIDR con vista binaria, reparto VLSM y ejercicios de práctica',
     refs: [
       { label: 'RFC 4632 (CIDR)', url: 'https://www.rfc-editor.org/rfc/rfc4632' },
       { label: 'RFC 1918 (privadas)', url: 'https://www.rfc-editor.org/rfc/rfc1918' },
