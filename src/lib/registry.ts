@@ -78,8 +78,8 @@ export const TOOLS: ToolDef[] = [
     ],
   },
   {
-    id: 'ports', name: 'Puertos & Servicios', track: 'Redes', status: 'pendiente', icon: Server, origin: 'Ports',
-    desc: 'Referencia de puertos con su servicio, riesgo típico y qué mirar en un pentest',
+    id: 'ports', name: 'Puertos & Servicios', track: 'Redes', status: 'listo', icon: Server, origin: 'Ports',
+    desc: 'Referencia de ~60 puertos con pentest y defensa, anotador de salida de nmap y flashcards',
     refs: [
       { label: 'IANA Service Name and Port Registry', url: 'https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml' },
     ],

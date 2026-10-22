@@ -1,6 +1,6 @@
 # Puertos & Servicios — apuntes
 
-**Estado:** pendiente. Los datos semilla ya están en `logic.ts` (incluye el 1858 del Vault de CyberArk).
+**Estado:** listo (2026-10-21). 63 puertos en `logic.ts` con notas de pentest y defensa, incluido el 1858 del Vault de CyberArk.
 
 ## Objetivos de aprendizaje
 - Memorizar los ~30 puertos que aparecen en casi cualquier pentest o certificación.
